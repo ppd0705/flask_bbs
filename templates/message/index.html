@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div id="main">
+
+<div id="content">
+  <div class="panel">
+    <div class="header">
+      <ul class="breadcrumb">
+        <li><a href="/">主页</a><span class="divider">/</span></li>
+        <li class="active">消息</li>
+      </ul>
+    </div>
+    <div class="inner">
+      <form id="signin_form" class="form-horizontal" action="{{ url_for('message.add', token=token) }}" method="post">
+        <div class="control-group">
+          <label class="control-label" for="receiver_id">收信人ID</label>
+
+          <div class="controls">
+            <input class="input-xlarge" name="receiver_id" size="23"  type="text">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="name">标题</label>
+
+          <div class="controls">
+            <input class="input-xlarge" name="title" size="23"  type="text">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="pass">内容</label>
+
+          <div class="controls">
+            <input class="input-xlarge" name="content" size="30" type="text">
+          </div>
+        </div>
+         <div class="form-actions" >
+          <input type="submit" style="background: #80bd01; margin-left: 11%; width: 100px"  class="span-primary" value="发送">
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="panel">
+            <div class="header">
+                <span class="col_fade">收到的消息</span>
+            </div>
+            {% for r in receives %}
+            <div class="cell">
+                  <a href="{{ url_for("message.view", id=r.id) }}">
+                    {{ r.title }}
+                </a>
+            </div>
+            {% endfor %}
+
+        </div>
+  <div class="panel">
+            <div class="header">
+                <span class="col_fade">发送的消息</span>
+            </div >
+            {% for s in sends %}
+                <div class="cell">
+                    <a href="{{ url_for("message.view", id=s.id) }}">
+                        {{ s.title }}
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+</div>
+
+</div>
+
+{% endblock %}

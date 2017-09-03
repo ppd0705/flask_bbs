@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div id="main">
+
+<div id="content">
+  <div class="panel">
+    <div class="header">
+      <ul class="breadcrumb">
+        <li><a href="/">主页</a><span class="divider">/</span></li>
+        <li class="active">消息</li>
+      </ul>
+    </div>
+    <div class="inner">
+        <div class="control-group">
+          <label class="control-label" >发信人ID :  {{ message.sender_id }}</label>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="receiver_id">收信人ID :{{ message.receiver_id }}</label>
+
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="receiver_id">标题 :{{ message.title }}</label>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="receiver_id">内容 : {{ message.content }}</label>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+{% endblock %}
