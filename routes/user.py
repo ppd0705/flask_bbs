@@ -43,7 +43,7 @@ def valid_suffix(suffix):
     return suffix in valid_type
 
 
-@main.route('/avatar', methods=["POST"])
+@main.route('/image', methods=["POST"])
 def change_avatar():
     u = current_user()
     file = request.files['avatar']
