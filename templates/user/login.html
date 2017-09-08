@@ -13,7 +13,6 @@
       </ul>
     </div>
     <div class="inner">
-
       <form id="signin_form" class="form-horizontal" action="{{url_for('.login')}}" method="post">
         <div class="control-group">
           <label class="control-label" for="name">用户名</label>
@@ -31,10 +30,15 @@
         </div>
          <div class="form-actions" >
           <input type="submit" style="background: #80bd01; margin-left: 11%; width: 100px" class="span-primary" value="登录">
-
         </div>
-
       </form>
+      <div class="control-group" >
+          <a class="control-label" style="color: black; margin-left: 7.8%;margin-right: 1%">微博快速登录  </a>
+         <a class="user_avatar" href="https://api.weibo.com/oauth2/authorize?client_id={{
+                 data.client_id}}&response_type=code&redirect_uri={{ data.redirect_uri }}">
+                        <img src="/static/weibo.png" title="微博快速登录">
+                    </a>
+        </div>
     </div>
   </div>
 </div>

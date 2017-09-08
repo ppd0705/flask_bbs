@@ -1,3 +1,4 @@
+from config import weibo_oauth
 from flask import (
     Blueprint,
     flash,
@@ -11,6 +12,7 @@ from models.board import Board
 from models.topic import Topic
 from models.user import User
 from routes import new_csrf_token, current_user
+from routes.oauth import user_from_oauth
 
 main = Blueprint('index', __name__)
 
@@ -31,7 +33,7 @@ def index():
 def register():
     if request.method == 'GET':
         token = new_csrf_token()
-        return render_template('user/register.html', token=token)
+        return render_template('user/register.html', token=token, data=weibo_oauth)
     else:
         form = request.form
         if User.validate_register(form):
@@ -46,7 +48,7 @@ def register():
 def login():
     if request.method == 'GET':
         token = new_csrf_token()
-        return render_template('user/login.html', token=token)
+        return render_template('user/login.html', token=token, data=weibo_oauth)
     else:
         form = request.form
         u = User.validate_login(form)
@@ -56,6 +58,16 @@ def login():
         else:
             flash('用户名或密码有误')
             return redirect(url_for('.login'))
+
+
+@main.route('/login/oauth', methods=["GET", "POST"])
+def login_oauth():
+    # get authorize_code
+    code = request.args.get('code')
+    # get user by authorize_code
+    u = user_from_oauth(code)
+    session['user_id'] = u.id
+    return redirect(url_for('.index'))
 
 
 @main.route('/logout', methods=["GET"])

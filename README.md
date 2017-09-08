@@ -18,21 +18,30 @@ flask_bbs
 ---
 
 主要的网页截图如下
-+ 1 未登录主页：
++  登录界面(支持微博直接登录)：
+
+![image](https://github.com/ppd0705/flask_bbs/blob/master/static/screenshot/login.png)
+
++  未登录主页：
 
 ![image](https://github.com/ppd0705/flask_bbs/blob/master/static/screenshot/index.png)
 
 
-+ 2 话题详情(支持Markdown）：
++  创建话题(支持Markdown）：
+
+![image](https://github.com/ppd0705/flask_bbs/blob/master/static/screenshot/create_topic.png)
+
+
++  话题详情：
 
 ![image](https://github.com/ppd0705/flask_bbs/blob/master/static/screenshot/topic_detail.png)
 
 
-+ 3 我的话题：
++  我的话题：
 
 ![image](https://github.com/ppd0705/flask_bbs/blob/master/static/screenshot/my_topic.png)
 
-+ 4 个人设置：
++  个人设置：
 
 ![image](https://github.com/ppd0705/flask_bbs/blob/master/static/screenshot/setting.png)
 
