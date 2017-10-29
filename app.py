@@ -15,6 +15,8 @@ def configured_app():
 
     app.secret_key = secret_key
 
+    app.route()
+
     app.register_blueprint(index_routes)
     app.register_blueprint(board_routes, url_prefix='/board')
     app.register_blueprint(message_routes, url_prefix='/message')

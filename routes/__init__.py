@@ -1,7 +1,7 @@
-import uuid
-
 from flask import session
 from models.user import User
+
+import uuid
 
 
 def current_user():
